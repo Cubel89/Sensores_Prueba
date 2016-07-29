@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@android:color/white</item>
         <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
     </style>
 
     <style name="NoSoleado" parent="Soleado">

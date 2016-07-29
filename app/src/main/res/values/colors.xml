@@ -6,4 +6,18 @@
     <color name="Gris_claro_fondo">#8b8b8b</color>
 
     <color name="dinamico_texto_color">#ffffff</color>
+
+
+    <!--TEMAS DINAMICOS -->
+    <!--Barra Superior -->
+    <color name="barra_superior_soleado">#303F9F</color>
+    <color name="barra_superior_oscuro">#070a1a</color>
+
+    <!--Fondos-->
+    <color name="fondo_soleado">#ffffff</color>
+    <color name="fondo_oscuro">#0e122e</color>
+
+    <!--Textos-->
+    <color name="texto_soleado">#000000</color>
+    <color name="texto_oscuro">#999999</color>
 </resources>

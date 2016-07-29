@@ -8,6 +8,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     Boolean thema_claro;
     Activity act;
+    //Temas
+    Themes tema = new Themes();
+
     private SensorManager mSensorManager;
     @Override
 
@@ -113,7 +117,9 @@ public class MainActivity extends AppCompatActivity {
                 //Utils.changeToTheme(act, Utils.THEME_CLARO);
                 //getWindow().getDecorView().setBackgroundColor(Color.WHITE);
                 colores(true);
+                Log.d("Colores", "DIA");
             } else {
+                Log.d("Colores", "NOCHE");
                 colores(false);
                 //Utils.changeToTheme(act, Utils.THEME_OSCURO);
                 //getWindow().getDecorView().setBackgroundColor(Color.BLACK);
@@ -124,19 +130,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void colores(Boolean tema_claro){
-        if (tema_claro){
-            getWindow().getDecorView().setBackgroundColor(Color.WHITE); //Cambiamos el fondo
-            //Textos
-            lista_sensores.setTextColor(Color.BLACK);
-            sensor_txt.setTextColor(Color.BLACK);
-            title.setTextColor(Color.BLACK);
-        } else {
-            getWindow().getDecorView().setBackgroundColor(Color.BLACK); //Cambiamos el fondo
-            //Textos
-            lista_sensores.setTextColor(Color.WHITE);
-            sensor_txt.setTextColor(Color.WHITE);
-            title.setTextColor(Color.WHITE);
+
+        //Fondo
+        getWindow().getDecorView().setBackgroundColor(Color.parseColor(tema.get_color_fondo(tema_claro)));
+
+
+        //Textos
+        lista_sensores.setTextColor(Color.parseColor(tema.get_color_texto(tema_claro)));
+        sensor_txt.setTextColor(Color.parseColor(tema.get_color_texto(tema_claro)));
+        title.setTextColor(Color.parseColor(tema.get_color_texto(tema_claro)));
+
+        //Barra superior
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.parseColor(tema.get_color_barra(tema_claro)));
         }
+
+
     }
 
 
